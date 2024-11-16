@@ -37,7 +37,14 @@ import {
   ChevronsUpDown,
   CreditCard,
   GalleryVerticalEnd,
-  LogOut
+  Keyboard,
+  LogOut,
+  Mail,
+  Phone,
+  Settings,
+  User,
+  UserPlus,
+  Users
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -45,6 +52,7 @@ import { usePathname } from 'next/navigation';
 import * as React from 'react';
 import { Icons } from '../icons';
 import Image from 'next/image';
+import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
 export const company = {
   name: 'Acme Inc',
@@ -173,16 +181,39 @@ export default function AppSidebar() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
-                    <BadgeCheck className="mr-4 h-4 w-4" />
-                    Account
+                    <User className="mr-4 h-4 w-4" />
+                    Profile
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <CreditCard className="mr-4 h-4 w-4" />
-                    Billing
+                    <Settings className="mr-4 h-4 w-4" />
+                    Settings
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Bell className="mr-4 h-4 w-4" />
-                    Notifications
+                    <Keyboard className="mr-4 h-4 w-4" />
+                    Keyboard Shortcuts
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>
+                    <Users className="mr-4 h-4 w-4" />
+                    Team
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Mail className="mr-4 h-4 w-4" />
+                    Invite users
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <UserPlus className="mr-4 h-4 w-4" />
+                    New team
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <GitHubLogoIcon className="mr-4 h-4 w-4" />
+                    Github
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Phone className="mr-4 h-4 w-4" />
+                    Support
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
