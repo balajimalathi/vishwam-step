@@ -131,7 +131,7 @@ export const navItems: NavItem[] = [
     items: [] // Empty array as there are no child items for Dashboard
   },
   {
-    title: 'Employee',
+    title: 'Discovery',
     url: '/dashboard/employee',
     icon: 'user',
     shortcut: ['e', 'e'],
@@ -139,39 +139,61 @@ export const navItems: NavItem[] = [
     items: [] // No child items
   },
   {
-    title: 'Product',
+    title: 'Known APIs',
     url: '/dashboard/product',
+    icon: 'product',
+    shortcut: ['p', 'p'],
+    isActive: false,
+    items: [] // No child items
+  }
+];
+
+export const navScanItems: NavItem[] = [
+  {
+    title: 'Repository Scan',
+    url: '/scan/overview',
+    icon: 'dashboard',
+    isActive: false,
+    shortcut: ['d', 'd'],
+    items: [] // Empty array as there are no child items for Dashboard
+  },
+  {
+    title: 'DNS Scan',
+    url: '/scan/employee',
+    icon: 'user',
+    shortcut: ['e', 'e'],
+    isActive: false,
+    items: [] // No child items
+  },
+  {
+    title: 'Logs Scan',
+    url: '/scan/product',
     icon: 'product',
     shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items
   },
   {
-    title: 'Account',
-    url: '#', // Placeholder as there is no direct link for the parent
-    icon: 'billing',
-    isActive: true,
-
-    items: [
-      {
-        title: 'Profile',
-        url: '/dashboard/profile',
-        icon: 'userPen',
-        shortcut: ['m', 'm']
-      },
-      {
-        title: 'Login',
-        shortcut: ['l', 'l'],
-        url: '/',
-        icon: 'login'
-      }
-    ]
+    title: 'Cloud Scan',
+    url: '/scan/overview',
+    icon: 'dashboard',
+    isActive: false,
+    shortcut: ['d', 'd'],
+    items: [] // Empty array as there are no child items for Dashboard
   },
   {
-    title: 'Kanban',
-    url: '/dashboard/kanban',
-    icon: 'kanban',
-    shortcut: ['k', 'k'],
+    title: 'Non-Prod Scan',
+    url: '/scan/employee',
+    icon: 'user',
+    shortcut: ['e', 'e'],
+    isActive: false,
+    items: [] // No child items
+  },
+  {
+    title: '3rd Party Tool Scan',
+    url: '/scan/product',
+    icon: 'product',
+    shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items
   }
