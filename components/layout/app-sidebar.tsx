@@ -44,6 +44,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import * as React from 'react';
 import { Icons } from '../icons';
+import Image from 'next/image';
 
 export const company = {
   name: 'Acme Inc',
@@ -58,13 +59,18 @@ export default function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
-        <div className="flex gap-2 py-2 text-sidebar-accent-foreground ">
-          <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-            <company.logo className="size-4" />
+        <div className="flex items-center gap-2 py-2 text-sidebar-accent-foreground">
+          <div className="flex size-8">
+            <Image
+              src="/thumbnail.svg"
+              className="size-8"
+              width="56"
+              height="56"
+              alt="Logo"
+            />
           </div>
           <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-semibold">{company.name}</span>
-            <span className="truncate text-xs">{company.plan}</span>
+            <Image src="/logo-text.svg" width="100" height="48" alt="Logo" />
           </div>
         </div>
       </SidebarHeader>
@@ -148,10 +154,10 @@ export default function AppSidebar() {
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">
-                      {session?.user?.name || ''}
+                      {session?.user?.name || 'Shadcn'}
                     </span>
                     <span className="truncate text-xs">
-                      {session?.user?.email || ''}
+                      {session?.user?.email || 'me@shadcn.com'}
                     </span>
                   </div>
                   <ChevronsUpDown className="ml-auto size-4" />
@@ -163,48 +169,25 @@ export default function AppSidebar() {
                 align="end"
                 sideOffset={4}
               >
-                <DropdownMenuLabel className="p-0 font-normal">
-                  <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                    <Avatar className="h-8 w-8 rounded-lg">
-                      <AvatarImage
-                        src={session?.user?.image || ''}
-                        alt={session?.user?.name || ''}
-                      />
-                      <AvatarFallback className="rounded-lg">
-                        {session?.user?.name?.slice(0, 2)?.toUpperCase() ||
-                          'CN'}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
-                      <span className="truncate font-semibold">
-                        {session?.user?.name || ''}
-                      </span>
-                      <span className="truncate text-xs">
-                        {' '}
-                        {session?.user?.email || ''}
-                      </span>
-                    </div>
-                  </div>
-                </DropdownMenuLabel>
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
-                    <BadgeCheck />
+                    <BadgeCheck className="mr-4 h-4 w-4" />
                     Account
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <CreditCard />
+                    <CreditCard className="mr-4 h-4 w-4" />
                     Billing
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Bell />
+                    <Bell className="mr-4 h-4 w-4" />
                     Notifications
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <LogOut />
+                  <LogOut className="mr-4 h-4 w-4" />
                   Log out
                 </DropdownMenuItem>
               </DropdownMenuContent>

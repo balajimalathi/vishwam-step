@@ -24,7 +24,7 @@ export default function OverViewPage() {
           </h2>
           <div className="hidden items-center space-x-2 md:flex">
             <CalendarDateRangePicker />
-            <Button>Download</Button>
+            <Button variant={'gradient'}>Download</Button>
           </div>
         </div>
         <Tabs defaultValue="overview" className="space-y-4">
