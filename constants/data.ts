@@ -121,6 +121,16 @@ export type Product = {
   updated_at: string;
 };
 
+export type KnownApi = {
+  type: string;
+  project: string;
+  endpoint_path: string;
+  source_type: string;
+  method: string;
+  api_discovered: string;
+  last_updated: string;
+};
+
 export const navItems: NavItem[] = [
   {
     title: 'Dashboard',
@@ -140,7 +150,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Known APIs',
-    url: '/dashboard/product',
+    url: '/dashboard/known-api',
     icon: 'product',
     shortcut: ['p', 'p'],
     isActive: false,
