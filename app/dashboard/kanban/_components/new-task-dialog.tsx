@@ -24,7 +24,8 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 
 import { useTaskStore } from '@/lib/store';
-import { UploadCloud } from 'lucide-react';
+import { Loader, UploadCloud } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function NewTaskDialog() {
   const addTask = useTaskStore((state) => state.addTask);
@@ -40,10 +41,25 @@ export default function NewTaskDialog() {
     addTask(title, description);
   };
 
+  const [loading, isLoading] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isOpen) {
+      timer = setTimeout(() => {
+        setIsOpen(false);
+        isLoading(false);
+      }, 5000); // Close after 5 seconds
+    }
+    return () => clearTimeout(timer); // Cleanup on component unmount or re-render
+  }, [loading]);
+
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="gradient">
+        <Button variant="gradient" onClick={() => setIsOpen(true)}>
           <UploadCloud className="mr-2 h-4 w-4" /> Upload
         </Button>
       </DialogTrigger>
@@ -52,73 +68,71 @@ export default function NewTaskDialog() {
           <DialogTitle>Known API</DialogTitle>
           <DialogDescription>Upload Known APIs</DialogDescription>
         </DialogHeader>
-        <form
-          id="todo-form"
-          className="grid gap-4 py-4"
-          onSubmit={handleSubmit}
-        >
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label>Project Name</Label>
-            <Select>
-              <SelectTrigger className="col-span-4">
-                <SelectValue placeholder="Select a fruit" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="blueberry">Blueberry</SelectItem>
-                  <SelectItem value="grapes">Grapes</SelectItem>
-                  <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+        {loading ? (
+          <div className="grid h-1/5 place-items-center">
+            <Loader className="mr-3 h-5 w-5 animate-spin" />
           </div>
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label>Type</Label>
-            <Select>
-              <SelectTrigger className="col-span-4">
-                <SelectValue placeholder="Select a type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="blueberry">Blueberry</SelectItem>
-                  <SelectItem value="grapes">Grapes</SelectItem>
-                  <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label>Type</Label>
-            <Select>
-              <SelectTrigger className="col-span-4">
-                <SelectValue placeholder="Select a type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="blueberry">Blueberry</SelectItem>
-                  <SelectItem value="grapes">Grapes</SelectItem>
-                  <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="upload">Upload</Label>
-            <Input className="col-span-4" id="upload" type="file" />
-          </div>
-        </form>
+        ) : (
+          <form
+            id="todo-form"
+            className="grid gap-4 py-4"
+            onSubmit={handleSubmit}
+          >
+            <div className="grid grid-cols-4 items-center gap-2">
+              <Label>Project Name</Label>
+              <Select>
+                <SelectTrigger className="col-span-4">
+                  <SelectValue placeholder="Select a project name" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="apple">payment_service</SelectItem>
+                    <SelectItem value="banana">bank_service</SelectItem>
+                    <SelectItem value="blueberry">credit_service</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-2">
+              <Label>Type</Label>
+              <Select>
+                <SelectTrigger className="col-span-4">
+                  <SelectValue placeholder="Select a type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="apple">OAS (JSON, YAML)</SelectItem>
+                    <SelectItem value="banana">URLs (SwaggerHub)</SelectItem>
+                    <SelectItem value="blueberry">Excel</SelectItem>
+                    <SelectItem value="grapes">CSV</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-2">
+              <Label htmlFor="upload">Upload</Label>
+              <div className="col-span-4 flex flex-row gap-4">
+                <Input id="upload" type="file" />
+                <Button type="button" variant={'outline'}>
+                  Upload
+                </Button>
+              </div>
+            </div>
+          </form>
+        )}
         <DialogFooter>
           <div className="flex flex-row gap-4">
             <Button type="button" variant={'outline'}>
               Cancel
             </Button>
-            <Button type="button" variant={'gradient'}>
+            <Button
+              disabled={loading}
+              type="button"
+              variant={'gradient'}
+              onClick={() => {
+                isLoading(true);
+              }}
+            >
               Next
             </Button>
           </div>
