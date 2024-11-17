@@ -161,25 +161,25 @@ export const navItems: NavItem[] = [
 export const navScanItems: NavItem[] = [
   {
     title: 'Repository Scan',
-    url: '/scan/overview',
+    url: '/scan/repository',
     icon: 'dashboard',
     isActive: false,
     shortcut: ['d', 'd'],
     items: [] // Empty array as there are no child items for Dashboard
   },
   {
-    title: 'DNS Scan',
-    url: '/scan/employee',
-    icon: 'user',
-    shortcut: ['e', 'e'],
+    title: 'Logs Scan',
+    url: '/scan/log',
+    icon: 'product',
+    shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items
   },
   {
-    title: 'Logs Scan',
-    url: '/scan/product',
-    icon: 'product',
-    shortcut: ['p', 'p'],
+    title: 'DNS Scan',
+    url: '/scan/employee',
+    icon: 'user',
+    shortcut: ['e', 'e'],
     isActive: false,
     items: [] // No child items
   },
