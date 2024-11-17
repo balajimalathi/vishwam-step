@@ -20,9 +20,10 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 import { useTaskStore } from '@/lib/store';
-import { Loader, UploadCloud } from 'lucide-react';
+import { Loader, ScanQrCode, UploadCloud } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function RepoScanFormDialog() {
@@ -58,13 +59,15 @@ export default function RepoScanFormDialog() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button variant="gradient" onClick={() => setIsOpen(true)}>
-          <UploadCloud className="mr-2 h-4 w-4" /> Upload
+          <ScanQrCode className="mr-2 h-4 w-4" /> Scan
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Known API</DialogTitle>
-          <DialogDescription>Upload Known APIs</DialogDescription>
+          <DialogTitle>New Scan</DialogTitle>
+          <DialogDescription>
+            Start scanning repository to harvest API’s
+          </DialogDescription>
         </DialogHeader>
         {loading ? (
           <div className="grid h-1/5 place-items-center">
@@ -92,29 +95,47 @@ export default function RepoScanFormDialog() {
               </Select>
             </div>
             <div className="grid grid-cols-4 items-center gap-2">
-              <Label>Type</Label>
+              <Label>Source To Scan</Label>
+              <div className="col-span-4 grid grid-cols-2 gap-2">
+                <Button variant={'gradientOutline'}>Repository</Button>
+                <Button variant={'gradientOutline'}>File</Button>
+              </div>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-2">
+              <Label htmlFor="upload">Upload</Label>
+              <div className="col-span-4 flex flex-row gap-4">
+                <Input
+                  id="title"
+                  name="title"
+                  placeholder="Enter repository URL"
+                />
+                <Button type="button">Connect</Button>
+              </div>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-2">
+              <Label>Branch</Label>
               <Select>
                 <SelectTrigger className="col-span-4">
-                  <SelectValue placeholder="Select a type" />
+                  <SelectValue placeholder="Select branch" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="apple">OAS (JSON, YAML)</SelectItem>
-                    <SelectItem value="banana">URLs (SwaggerHub)</SelectItem>
-                    <SelectItem value="blueberry">Excel</SelectItem>
-                    <SelectItem value="grapes">CSV</SelectItem>
+                    <SelectItem value="main">main</SelectItem>
+                    <SelectItem value="dev">dev</SelectItem>
+                    <SelectItem value="uat">uat</SelectItem>
+                    <SelectItem value="prod">prod</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
             </div>
             <div className="grid grid-cols-4 items-center gap-2">
-              <Label htmlFor="upload">Upload</Label>
-              <div className="col-span-4 flex flex-row gap-4">
-                <Input id="upload" type="file" />
-                <Button type="button" variant={'outline'}>
-                  Upload
-                </Button>
-              </div>
+              <Label htmlFor="upload">Scan Tags</Label>
+              <Input
+                id="title"
+                name="title"
+                className="col-span-4"
+                placeholder="Enter scan tags"
+              />
             </div>
           </form>
         )}

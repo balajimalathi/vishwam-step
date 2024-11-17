@@ -134,7 +134,7 @@ export type KnownApi = {
 export const navItems: NavItem[] = [
   {
     title: 'Dashboard',
-    url: '/dashboard/overview',
+    url: '/dashboard',
     icon: 'dashboard',
     isActive: false,
     shortcut: ['d', 'd'],
@@ -150,7 +150,7 @@ export const navItems: NavItem[] = [
   // },
   {
     title: 'Known APIs',
-    url: '/dashboard/known-api',
+    url: '/known-api',
     icon: 'product',
     shortcut: ['p', 'p'],
     isActive: false,
@@ -177,7 +177,7 @@ export const navScanItems: NavItem[] = [
   },
   {
     title: 'DNS Scan',
-    url: '/scan/employee',
+    url: '/scan/dns',
     icon: 'user',
     shortcut: ['e', 'e'],
     isActive: false,
@@ -185,7 +185,7 @@ export const navScanItems: NavItem[] = [
   },
   {
     title: 'Cloud Scan',
-    url: '/scan/overview',
+    url: '/scan/cloud',
     icon: 'dashboard',
     isActive: false,
     shortcut: ['d', 'd'],
@@ -193,7 +193,7 @@ export const navScanItems: NavItem[] = [
   },
   {
     title: 'Non-Prod Scan',
-    url: '/scan/employee',
+    url: '/scan/non-prod',
     icon: 'user',
     shortcut: ['e', 'e'],
     isActive: false,
@@ -201,7 +201,7 @@ export const navScanItems: NavItem[] = [
   },
   {
     title: '3rd Party Tool Scan',
-    url: '/scan/product',
+    url: '/scan/external',
     icon: 'product',
     shortcut: ['p', 'p'],
     isActive: false,

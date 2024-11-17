@@ -13,7 +13,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import RepoScanFormDialog from './_components/product-form-dialog';
 
 export const metadata = {
-  title: 'Dashboard: Known APIs'
+  title: 'Scan | Log'
 };
 
 type pageProps = {
@@ -31,7 +31,7 @@ export default function Page({ searchParams }: pageProps) {
     <PageContainer>
       <div className="space-y-4">
         <div className="flex items-start justify-between">
-          <Heading title="Known APIs" />
+          <Heading title="Log scan" />
           <RepoScanFormDialog />
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

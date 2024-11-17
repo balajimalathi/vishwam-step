@@ -11,9 +11,11 @@ import ProductListingPage from './_components/product-listing';
 import ProductTableAction from './_components/product-tables/product-table-action';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import RepoScanFormDialog from './_components/product-form-dialog';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { Label } from '@/components/ui/label';
 
 export const metadata = {
-  title: 'Dashboard: Known APIs'
+  title: 'Scan | Repository'
 };
 
 type pageProps = {
@@ -31,7 +33,7 @@ export default function Page({ searchParams }: pageProps) {
     <PageContainer>
       <div className="space-y-4">
         <div className="flex items-start justify-between">
-          <Heading title="Known APIs" />
+          <Heading title="Repository Scan" />
           <RepoScanFormDialog />
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
