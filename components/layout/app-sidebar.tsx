@@ -49,7 +49,7 @@ import {
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { Icons } from '../icons';
 import Image from 'next/image';
@@ -64,7 +64,7 @@ export const company = {
 export default function AppSidebar() {
   const { data: session } = useSession();
   const pathname = usePathname();
-
+  const router = useRouter();
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
@@ -276,7 +276,11 @@ export default function AppSidebar() {
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => {
+                    router.push('/');
+                  }}
+                >
                   <LogOut className="mr-4 h-4 w-4" />
                   Log out
                 </DropdownMenuItem>

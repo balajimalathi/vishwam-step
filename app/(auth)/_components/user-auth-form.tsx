@@ -31,7 +31,7 @@ export default function UserAuthForm() {
   const callbackUrl = searchParams.get('callbackUrl');
   const [loading, startTransition] = useTransition();
   const defaultValues = {
-    email: 'demo@gmail.com'
+    email: 'demo@stepzero.tech'
   };
   const form = useForm<UserFormValue>({
     resolver: zodResolver(formSchema),
@@ -98,7 +98,7 @@ export default function UserAuthForm() {
                 <FormControl>
                   <Input
                     type="password"
-                    placeholder="Enter your email..."
+                    placeholder="Enter your password..."
                     disabled={loading}
                     {...field}
                   />
