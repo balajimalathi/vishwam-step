@@ -126,7 +126,11 @@ export type KnownApi = {
   project: string;
   endpoint_path: string;
   source_type: string;
+  repo_source_type: string;
+  log: string;
   method: string;
+  gateway_project_name: string;
+  gateway_source_type: string;
   api_discovered: string;
   last_updated: string;
 };
@@ -162,7 +166,7 @@ export const navScanItems: NavItem[] = [
   {
     title: 'Repository Scan',
     url: '/scan/repository',
-    icon: 'dashboard',
+    icon: 'gitHub',
     isActive: false,
     shortcut: ['d', 'd'],
     items: [] // Empty array as there are no child items for Dashboard
@@ -170,26 +174,26 @@ export const navScanItems: NavItem[] = [
   {
     title: 'Logs Scan',
     url: '/scan/log',
-    icon: 'product',
+    icon: 'billing',
     shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items
   },
   {
-    title: 'DNS Scan',
-    url: '/scan/dns',
-    icon: 'user',
-    shortcut: ['e', 'e'],
-    isActive: false,
-    items: [] // No child items
-  },
-  {
-    title: 'Cloud Scan',
-    url: '/scan/cloud',
-    icon: 'dashboard',
+    title: 'API Gateway Scan',
+    url: '/scan/api-gateway',
+    icon: 'settings',
     isActive: false,
     shortcut: ['d', 'd'],
     items: [] // Empty array as there are no child items for Dashboard
+  },
+  {
+    title: 'DNS Scan',
+    url: '/scan/dns',
+    icon: 'product',
+    shortcut: ['e', 'e'],
+    isActive: false,
+    items: [] // No child items
   },
   {
     title: 'Non-Prod Scan',
@@ -202,7 +206,7 @@ export const navScanItems: NavItem[] = [
   {
     title: '3rd Party Tool Scan',
     url: '/scan/external',
-    icon: 'product',
+    icon: 'add',
     shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items

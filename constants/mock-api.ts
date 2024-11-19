@@ -201,7 +201,11 @@ export type KnownApi = {
   project: string;
   endpoint_path: string;
   source_type: string;
+  repo_source_type: string;
+  log: string;
   method: string;
+  gateway_project_name: string;
+  gateway_source_type: string;
   api_discovered: string;
   last_updated: string;
 };
@@ -214,24 +218,34 @@ export const fakeApi = {
     const sampleProducts: KnownApi[] = [];
     function generateRandomProductData(id: number): KnownApi {
       const categories = [
-        'Electronics',
-        'Furniture',
-        'Clothing',
-        'Toys',
-        'Groceries',
-        'Books',
-        'Jewelry',
-        'Beauty Products'
+        'Payment',
+        'Mobile',
+        'Visa',
+        'Mastercard',
+        'Express',
+        'Cloud',
+        'Onprem',
+        'Internal'
       ];
 
+      const repoSources = ['GitLab', 'Azure', 'Github'];
+
       return {
-        type: 'type',
-        project: faker.company.name(),
-        endpoint_path: 'endpoint_path',
-        source_type: 'source_type',
-        method: 'method',
+        type: 'OAS',
+        project: faker.git.branch(),
+        endpoint_path:
+          '/api/v' +
+          faker.number.int({ min: 1, max: 5 }) +
+          '/' +
+          faker.finance.creditCardIssuer(),
+        source_type: 'file_upload',
+        repo_source_type: repoSources[faker.number.int({ min: 0, max: 2 })],
+        log: 'Apache',
+        method: faker.internet.httpMethod(),
+        gateway_project_name: 'Payment',
+        gateway_source_type: 'Apigee x',
         api_discovered: faker.date
-          .between({ from: '2022-01-01', to: '2023-12-31' })
+          .between({ from: '2024-09-01', to: '2024-11-10' })
           .toISOString(),
         last_updated: faker.date.recent().toISOString()
       };
@@ -346,14 +360,14 @@ export const fakeProducts = {
     const sampleProducts: Product[] = [];
     function generateRandomProductData(id: number): Product {
       const categories = [
-        'Electronics',
-        'Furniture',
-        'Clothing',
-        'Toys',
-        'Groceries',
-        'Books',
-        'Jewelry',
-        'Beauty Products'
+        'Payment',
+        'Mobile',
+        'Visa',
+        'Mastercard',
+        'Express',
+        'Cloud',
+        'Onprem',
+        'Internal'
       ];
 
       return {
