@@ -30,7 +30,7 @@ export default async function RootLayout({
       suppressHydrationWarning={true}
     >
       <body className={'overflow-hidden'}>
-        <NextTopLoader showSpinner={false} />
+        <NextTopLoader showSpinner={false} color="#ef5927" />
         <Providers session={session}>
           <Toaster />
           {children}
