@@ -20,121 +20,121 @@ import {
 export const description = 'An interactive bar chart';
 
 const chartData = [
-  { date: '2024-04-01', desktop: 222, mobile: 150 },
-  { date: '2024-04-02', desktop: 97, mobile: 180 },
-  { date: '2024-04-03', desktop: 167, mobile: 120 },
-  { date: '2024-04-04', desktop: 242, mobile: 260 },
-  { date: '2024-04-05', desktop: 373, mobile: 290 },
-  { date: '2024-04-06', desktop: 301, mobile: 340 },
-  { date: '2024-04-07', desktop: 245, mobile: 180 },
-  { date: '2024-04-08', desktop: 409, mobile: 320 },
-  { date: '2024-04-09', desktop: 59, mobile: 110 },
-  { date: '2024-04-10', desktop: 261, mobile: 190 },
-  { date: '2024-04-11', desktop: 327, mobile: 350 },
-  { date: '2024-04-12', desktop: 292, mobile: 210 },
-  { date: '2024-04-13', desktop: 342, mobile: 380 },
-  { date: '2024-04-14', desktop: 137, mobile: 220 },
-  { date: '2024-04-15', desktop: 120, mobile: 170 },
-  { date: '2024-04-16', desktop: 138, mobile: 190 },
-  { date: '2024-04-17', desktop: 446, mobile: 360 },
-  { date: '2024-04-18', desktop: 364, mobile: 410 },
-  { date: '2024-04-19', desktop: 243, mobile: 180 },
-  { date: '2024-04-20', desktop: 89, mobile: 150 },
-  { date: '2024-04-21', desktop: 137, mobile: 200 },
-  { date: '2024-04-22', desktop: 224, mobile: 170 },
-  { date: '2024-04-23', desktop: 138, mobile: 230 },
-  { date: '2024-04-24', desktop: 387, mobile: 290 },
-  { date: '2024-04-25', desktop: 215, mobile: 250 },
-  { date: '2024-04-26', desktop: 75, mobile: 130 },
-  { date: '2024-04-27', desktop: 383, mobile: 420 },
-  { date: '2024-04-28', desktop: 122, mobile: 180 },
-  { date: '2024-04-29', desktop: 315, mobile: 240 },
-  { date: '2024-04-30', desktop: 454, mobile: 380 },
-  { date: '2024-05-01', desktop: 165, mobile: 220 },
-  { date: '2024-05-02', desktop: 293, mobile: 310 },
-  { date: '2024-05-03', desktop: 247, mobile: 190 },
-  { date: '2024-05-04', desktop: 385, mobile: 420 },
-  { date: '2024-05-05', desktop: 481, mobile: 390 },
-  { date: '2024-05-06', desktop: 498, mobile: 520 },
-  { date: '2024-05-07', desktop: 388, mobile: 300 },
-  { date: '2024-05-08', desktop: 149, mobile: 210 },
-  { date: '2024-05-09', desktop: 227, mobile: 180 },
-  { date: '2024-05-10', desktop: 293, mobile: 330 },
-  { date: '2024-05-11', desktop: 335, mobile: 270 },
-  { date: '2024-05-12', desktop: 197, mobile: 240 },
-  { date: '2024-05-13', desktop: 197, mobile: 160 },
-  { date: '2024-05-14', desktop: 448, mobile: 490 },
-  { date: '2024-05-15', desktop: 473, mobile: 380 },
-  { date: '2024-05-16', desktop: 338, mobile: 400 },
-  { date: '2024-05-17', desktop: 499, mobile: 420 },
-  { date: '2024-05-18', desktop: 315, mobile: 350 },
-  { date: '2024-05-19', desktop: 235, mobile: 180 },
-  { date: '2024-05-20', desktop: 177, mobile: 230 },
-  { date: '2024-05-21', desktop: 82, mobile: 140 },
-  { date: '2024-05-22', desktop: 81, mobile: 120 },
-  { date: '2024-05-23', desktop: 252, mobile: 290 },
-  { date: '2024-05-24', desktop: 294, mobile: 220 },
-  { date: '2024-05-25', desktop: 201, mobile: 250 },
-  { date: '2024-05-26', desktop: 213, mobile: 170 },
-  { date: '2024-05-27', desktop: 420, mobile: 460 },
-  { date: '2024-05-28', desktop: 233, mobile: 190 },
-  { date: '2024-05-29', desktop: 78, mobile: 130 },
-  { date: '2024-05-30', desktop: 340, mobile: 280 },
-  { date: '2024-05-31', desktop: 178, mobile: 230 },
-  { date: '2024-06-01', desktop: 178, mobile: 200 },
-  { date: '2024-06-02', desktop: 470, mobile: 410 },
-  { date: '2024-06-03', desktop: 103, mobile: 160 },
-  { date: '2024-06-04', desktop: 439, mobile: 380 },
-  { date: '2024-06-05', desktop: 88, mobile: 140 },
-  { date: '2024-06-06', desktop: 294, mobile: 250 },
-  { date: '2024-06-07', desktop: 323, mobile: 370 },
-  { date: '2024-06-08', desktop: 385, mobile: 320 },
-  { date: '2024-06-09', desktop: 438, mobile: 480 },
-  { date: '2024-06-10', desktop: 155, mobile: 200 },
-  { date: '2024-06-11', desktop: 92, mobile: 150 },
-  { date: '2024-06-12', desktop: 492, mobile: 420 },
-  { date: '2024-06-13', desktop: 81, mobile: 130 },
-  { date: '2024-06-14', desktop: 426, mobile: 380 },
-  { date: '2024-06-15', desktop: 307, mobile: 350 },
-  { date: '2024-06-16', desktop: 371, mobile: 310 },
-  { date: '2024-06-17', desktop: 475, mobile: 520 },
-  { date: '2024-06-18', desktop: 107, mobile: 170 },
-  { date: '2024-06-19', desktop: 341, mobile: 290 },
-  { date: '2024-06-20', desktop: 408, mobile: 450 },
-  { date: '2024-06-21', desktop: 169, mobile: 210 },
-  { date: '2024-06-22', desktop: 317, mobile: 270 },
-  { date: '2024-06-23', desktop: 480, mobile: 530 },
-  { date: '2024-06-24', desktop: 132, mobile: 180 },
-  { date: '2024-06-25', desktop: 141, mobile: 190 },
-  { date: '2024-06-26', desktop: 434, mobile: 380 },
-  { date: '2024-06-27', desktop: 448, mobile: 490 },
-  { date: '2024-06-28', desktop: 149, mobile: 200 },
-  { date: '2024-06-29', desktop: 103, mobile: 160 },
-  { date: '2024-06-30', desktop: 446, mobile: 400 }
+  { date: '2024-09-01', repo: 222, log: 150 },
+  { date: '2024-09-02', repo: 97, log: 180 },
+  { date: '2024-09-03', repo: 167, log: 120 },
+  { date: '2024-09-04', repo: 242, log: 260 },
+  { date: '2024-09-05', repo: 373, log: 290 },
+  { date: '2024-09-06', repo: 301, log: 340 },
+  { date: '2024-09-07', repo: 245, log: 180 },
+  { date: '2024-09-08', repo: 409, log: 320 },
+  { date: '2024-09-09', repo: 59, log: 110 },
+  { date: '2024-09-10', repo: 261, log: 190 },
+  { date: '2024-09-11', repo: 327, log: 350 },
+  { date: '2024-09-12', repo: 292, log: 210 },
+  { date: '2024-09-13', repo: 342, log: 380 },
+  { date: '2024-09-14', repo: 137, log: 220 },
+  { date: '2024-09-15', repo: 120, log: 170 },
+  { date: '2024-09-16', repo: 138, log: 190 },
+  { date: '2024-09-17', repo: 446, log: 360 },
+  { date: '2024-09-18', repo: 364, log: 410 },
+  { date: '2024-09-19', repo: 243, log: 180 },
+  { date: '2024-09-20', repo: 89, log: 150 },
+  { date: '2024-09-21', repo: 137, log: 200 },
+  { date: '2024-09-22', repo: 224, log: 170 },
+  { date: '2024-09-23', repo: 138, log: 230 },
+  { date: '2024-09-24', repo: 387, log: 290 },
+  { date: '2024-09-25', repo: 215, log: 250 },
+  { date: '2024-09-26', repo: 75, log: 130 },
+  { date: '2024-09-27', repo: 383, log: 420 },
+  { date: '2024-09-28', repo: 122, log: 180 },
+  { date: '2024-09-29', repo: 315, log: 240 },
+  { date: '2024-09-30', repo: 454, log: 380 },
+  { date: '2024-10-01', repo: 165, log: 220 },
+  { date: '2024-10-02', repo: 293, log: 310 },
+  { date: '2024-10-03', repo: 247, log: 190 },
+  { date: '2024-10-04', repo: 385, log: 420 },
+  { date: '2024-10-05', repo: 481, log: 390 },
+  { date: '2024-10-06', repo: 498, log: 520 },
+  { date: '2024-10-07', repo: 388, log: 300 },
+  { date: '2024-10-08', repo: 149, log: 210 },
+  { date: '2024-10-09', repo: 227, log: 180 },
+  { date: '2024-10-10', repo: 293, log: 330 },
+  { date: '2024-10-11', repo: 335, log: 270 },
+  { date: '2024-10-12', repo: 197, log: 240 },
+  { date: '2024-10-13', repo: 197, log: 160 },
+  { date: '2024-10-14', repo: 448, log: 490 },
+  { date: '2024-10-15', repo: 473, log: 380 },
+  { date: '2024-10-16', repo: 338, log: 400 },
+  { date: '2024-10-17', repo: 499, log: 420 },
+  { date: '2024-10-18', repo: 315, log: 350 },
+  { date: '2024-10-19', repo: 235, log: 180 },
+  { date: '2024-10-20', repo: 177, log: 230 },
+  { date: '2024-10-21', repo: 82, log: 140 },
+  { date: '2024-10-22', repo: 81, log: 120 },
+  { date: '2024-10-23', repo: 252, log: 290 },
+  { date: '2024-10-24', repo: 294, log: 220 },
+  { date: '2024-10-25', repo: 201, log: 250 },
+  { date: '2024-10-26', repo: 213, log: 170 },
+  { date: '2024-10-27', repo: 420, log: 460 },
+  { date: '2024-10-28', repo: 233, log: 190 },
+  { date: '2024-10-29', repo: 78, log: 130 },
+  { date: '2024-10-30', repo: 340, log: 280 },
+  { date: '2024-10-31', repo: 178, log: 230 },
+  { date: '2024-11-01', repo: 178, log: 200 },
+  { date: '2024-11-02', repo: 470, log: 410 },
+  { date: '2024-11-03', repo: 103, log: 160 },
+  { date: '2024-11-04', repo: 439, log: 380 },
+  { date: '2024-11-05', repo: 88, log: 140 },
+  { date: '2024-11-06', repo: 294, log: 250 },
+  { date: '2024-11-07', repo: 323, log: 370 },
+  { date: '2024-11-08', repo: 385, log: 320 },
+  { date: '2024-11-09', repo: 438, log: 480 },
+  { date: '2024-11-10', repo: 155, log: 200 },
+  { date: '2024-11-11', repo: 92, log: 150 },
+  { date: '2024-11-12', repo: 492, log: 420 },
+  { date: '2024-11-13', repo: 81, log: 130 },
+  { date: '2024-11-14', repo: 426, log: 380 },
+  { date: '2024-11-15', repo: 307, log: 350 },
+  { date: '2024-11-16', repo: 371, log: 310 },
+  { date: '2024-11-17', repo: 475, log: 520 },
+  { date: '2024-11-18', repo: 107, log: 170 },
+  { date: '2024-11-19', repo: 341, log: 290 },
+  { date: '2024-11-20', repo: 408, log: 450 },
+  { date: '2024-11-21', repo: 169, log: 210 },
+  { date: '2024-11-22', repo: 317, log: 270 },
+  { date: '2024-11-23', repo: 480, log: 530 },
+  { date: '2024-11-24', repo: 132, log: 180 },
+  { date: '2024-11-25', repo: 141, log: 190 },
+  { date: '2024-11-26', repo: 434, log: 380 },
+  { date: '2024-11-27', repo: 448, log: 490 },
+  { date: '2024-11-28', repo: 149, log: 200 },
+  { date: '2024-11-29', repo: 103, log: 160 },
+  { date: '2024-11-30', repo: 446, log: 400 }
 ];
 
 const chartConfig = {
   views: {
-    label: 'Page Views'
+    label: 'APIs Found'
   },
-  desktop: {
-    label: 'Desktop',
+  repo: {
+    label: 'repo',
     color: 'hsl(var(--chart-1))'
   },
-  mobile: {
-    label: 'Mobile',
+  log: {
+    label: 'log',
     color: 'hsl(var(--chart-2))'
   }
 } satisfies ChartConfig;
 
 export function BarGraph() {
   const [activeChart, setActiveChart] =
-    React.useState<keyof typeof chartConfig>('desktop');
+    React.useState<keyof typeof chartConfig>('repo');
 
   const total = React.useMemo(
     () => ({
-      desktop: chartData.reduce((acc, curr) => acc + curr.desktop, 0),
-      mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0)
+      repo: chartData.reduce((acc, curr) => acc + curr.repo, 0),
+      log: chartData.reduce((acc, curr) => acc + curr.log, 0)
     }),
     []
   );
@@ -143,13 +143,13 @@ export function BarGraph() {
     <Card>
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
         <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
-          <CardTitle>Bar Chart - Interactive</CardTitle>
+          <CardTitle>File Scanned</CardTitle>
           <CardDescription>
-            Showing total visitors for the last 3 months
+            Showing total file scanned for the last 3 months
           </CardDescription>
         </div>
         <div className="flex">
-          {['desktop', 'mobile'].map((key) => {
+          {['repo', 'log'].map((key) => {
             const chart = key as keyof typeof chartConfig;
             return (
               <button

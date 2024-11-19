@@ -18,21 +18,21 @@ import {
   ChartTooltipContent
 } from '@/components/ui/chart';
 const chartData = [
-  { month: 'January', desktop: 186, mobile: 80 },
-  { month: 'February', desktop: 305, mobile: 200 },
-  { month: 'March', desktop: 237, mobile: 120 },
-  { month: 'April', desktop: 73, mobile: 190 },
-  { month: 'May', desktop: 209, mobile: 130 },
-  { month: 'June', desktop: 214, mobile: 140 }
+  // { month: 'January', repo: 186, log: 80 },
+  // { month: 'February', repo: 305, log: 200 },
+  // { month: 'March', repo: 237, log: 120 },
+  { month: 'September', repo: 237, log: 80 },
+  { month: 'October', repo: 76, log: 200 },
+  { month: 'November', repo: 214, log: 140 }
 ];
 
 const chartConfig = {
-  desktop: {
-    label: 'Desktop',
+  repo: {
+    label: 'repo',
     color: 'hsl(var(--chart-1))'
   },
-  mobile: {
-    label: 'Mobile',
+  log: {
+    label: 'log',
     color: 'hsl(var(--chart-2))'
   }
 } satisfies ChartConfig;
@@ -41,9 +41,9 @@ export function AreaGraph() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Area Chart - Stacked</CardTitle>
+        <CardTitle>API Status - Stacked</CardTitle>
         <CardDescription>
-          Showing total visitors for the last 6 months
+          Showing total API Status for the last 3 months
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -72,19 +72,19 @@ export function AreaGraph() {
               content={<ChartTooltipContent indicator="dot" />}
             />
             <Area
-              dataKey="mobile"
+              dataKey="log"
               type="natural"
-              fill="var(--color-mobile)"
+              fill="var(--color-log)"
               fillOpacity={0.4}
-              stroke="var(--color-mobile)"
+              stroke="var(--color-log)"
               stackId="a"
             />
             <Area
-              dataKey="desktop"
+              dataKey="repo"
               type="natural"
-              fill="var(--color-desktop)"
+              fill="var(--color-repo)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
+              stroke="var(--color-repo)"
               stackId="a"
             />
           </AreaChart>
@@ -97,7 +97,7 @@ export function AreaGraph() {
               Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              January - June 2024
+              Sep - Nov 2024
             </div>
           </div>
         </div>
