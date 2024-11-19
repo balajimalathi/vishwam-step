@@ -20,13 +20,12 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 import { useTaskStore } from '@/lib/store';
-import { Loader, ScanQrCode, UploadCloud } from 'lucide-react';
+import { Loader, ScanQrCode, UserPlus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-export default function RepoScanFormDialog() {
+export default function OrgSetupDialog() {
   const addTask = useTaskStore((state) => state.addTask);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -59,15 +58,15 @@ export default function RepoScanFormDialog() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="gradient" onClick={() => setIsOpen(true)}>
-          <ScanQrCode className="mr-2 h-4 w-4" /> Scan
+        <Button variant="secondary" onClick={() => setIsOpen(true)}>
+          <UserPlus className="mr-2 h-4 w-4" /> Add Account
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>New Scan</DialogTitle>
+          <DialogTitle>New Account</DialogTitle>
           <DialogDescription>
-            Start scanning repository to harvest API’s
+            {`Start scanning repository to harvest API's`}
           </DialogDescription>
         </DialogHeader>
         {loading ? (
@@ -81,16 +80,25 @@ export default function RepoScanFormDialog() {
             onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-4 items-center gap-2">
-              <Label>Project Name</Label>
+              <Label>Org Name</Label>
+              <Input
+                id="title"
+                name="title"
+                className="col-span-4"
+                placeholder="Enter organization name"
+              />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-2">
+              <Label>Repo Type</Label>
               <Select>
                 <SelectTrigger className="col-span-4">
-                  <SelectValue placeholder="Select a project name" />
+                  <SelectValue placeholder="Select repo type" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="apple">payment_service</SelectItem>
-                    <SelectItem value="banana">bank_service</SelectItem>
-                    <SelectItem value="blueberry">credit_service</SelectItem>
+                    <SelectItem value="main">Github</SelectItem>
+                    <SelectItem value="dev">GitLab</SelectItem>
+                    <SelectItem value="uat">Azure</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -104,7 +112,7 @@ export default function RepoScanFormDialog() {
                     setSource(true);
                   }}
                 >
-                  Repository
+                  Account
                 </Button>
                 <Button
                   variant={source ? 'gradientOutline' : 'default'}
@@ -112,46 +120,47 @@ export default function RepoScanFormDialog() {
                     setSource(false);
                   }}
                 >
-                  File
+                  Access Token
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-4 items-center gap-2">
-              <Label htmlFor="upload">Upload</Label>
-              <div className="col-span-4 flex flex-row gap-4">
-                <Input
-                  id="title"
-                  name="title"
-                  placeholder="Enter repository URL"
-                />
-                <Button type="button">Connect</Button>
+            {source ? (
+              <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-4 items-center gap-2">
+                  <Label>Username</Label>
+                  <div className="col-span-4 flex flex-row gap-4">
+                    <Input
+                      id="title"
+                      name="title"
+                      placeholder="Enter username"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-4 items-center gap-2">
+                  <Label>Password</Label>
+                  <div className="col-span-4 flex flex-row gap-4">
+                    <Input
+                      id="title"
+                      name="title"
+                      type="password"
+                      placeholder="Enter password"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="grid grid-cols-4 items-center gap-2">
-              <Label>Branch</Label>
-              <Select>
-                <SelectTrigger className="col-span-4">
-                  <SelectValue placeholder="Select branch" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="main">main</SelectItem>
-                    <SelectItem value="dev">dev</SelectItem>
-                    <SelectItem value="uat">uat</SelectItem>
-                    <SelectItem value="prod">prod</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="grid grid-cols-4 items-center gap-2">
-              <Label htmlFor="upload">Scan Tags</Label>
-              <Input
-                id="title"
-                name="title"
-                className="col-span-4"
-                placeholder="Enter scan tags"
-              />
-            </div>
+            ) : (
+              <div className="grid grid-cols-4 items-center gap-2">
+                <Label>Access Token</Label>
+                <div className="col-span-4 flex flex-row gap-4">
+                  <Input
+                    id="title"
+                    name="title"
+                    type="password"
+                    placeholder="Enter access token"
+                  />
+                </div>
+              </div>
+            )}
           </form>
         )}
         <DialogFooter>
