@@ -1,12 +1,12 @@
-import { KnownApi } from '@/constants/data';
-import { fakeApi } from '@/constants/mock-api';
+import { KnownApi, Product } from '@/constants/data';
+import { fakeApi, fakeProducts } from '@/constants/mock-api';
 import { searchParamsCache } from '@/lib/searchparams';
 import { DataTable as ProductTable } from '@/components/ui/table/data-table';
 import { columns } from './product-tables/columns';
 
-type ProductListingPage = {};
+type RepoScanPage = {};
 
-export default async function ProductListingPage({}: ProductListingPage) {
+export default async function RepoScanPage({}: RepoScanPage) {
   // Showcasing the use of search params cache in nested RSCs
   const page = searchParamsCache.get('page');
   const search = searchParamsCache.get('q');

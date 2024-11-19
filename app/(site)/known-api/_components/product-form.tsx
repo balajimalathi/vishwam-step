@@ -144,9 +144,9 @@ export default function ProductForm({
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="beauty">Beauty Products</SelectItem>
-                        <SelectItem value="electronics">Electronics</SelectItem>
-                        <SelectItem value="clothing">Clothing</SelectItem>
+                        <SelectItem value="beauty">Internal</SelectItem>
+                        <SelectItem value="Payment">Payment</SelectItem>
+                        <SelectItem value="Visa">Visa</SelectItem>
                         <SelectItem value="home">Home & Garden</SelectItem>
                         <SelectItem value="sports">
                           Sports & Outdoors
